@@ -1,22 +1,11 @@
-# Config file for automatic testing at travis-ci.org
-
 language: python
 python:
-  - 3.6
-  - 3.5
-  - 3.4
-  - 2.7
-
-# Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+- 3.6
+- 3.5
+- 3.4
+- 2.7
 install: pip install -U tox-travis
-
-# Command to run tests, e.g. python setup.py test
 script: tox
-
-# Assuming you have installed the travis-ci CLI tool, after you
-# create the Github repo and add it to Travis, run the
-# following command to finish PyPI deployment setup:
-# $ travis encrypt --add deploy.password
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
@@ -27,3 +16,7 @@ deploy:
     tags: true
     repo: NorthIsUp/autopep8_autoline
     python: 3.6
+  username=Cnorthisup:
+    secure: QMvqGsQVaTFeSbnbfqYtQ8h3un9bETKXWIzuB2v3d8/rSu8S49fk0CDD21BaQlNV1cJUvWgiIrKVWad/KTmuYVQQ/XO1tMNgIBb0UxFawLvA25/xIo2qfpuEhHnFitJhiam6BCmErGxi6OeRf4MKN9eYryJFfqsjSVgZVKWJ14q5a7LDkrUxzBO/IX2Ty0y4d0KO5PMaxt+WGqtkXnBhCJd/0t+eJZGh498AUQlJ04um5/s34drs+WglgRgFBFsKuY1i0pa2+G02MmM/xm8QQfFTbthp4WJzDOHK/8XIyVfr3Yd5ggxGCMtZ2UxcJjZrDPOZiQobgcCwUx7xE1bOKOYxQysej2T8bvRdp24tkhchNn3hzGZaK16CxCTNigdAAAleGjP2BYt9vftyMwd8RbAnfACVP+Vghjn3KSsaitppizmNy/GIwgH5U7O88ggw8gzEWrEFDtIoKTMuWGQl954hFHDISTEqKkzjU5LOi7TShV1y8BP78DLsg/qBS7tpoY3PUwP2kK0mf7PW7NC/yOCKxp4EkhESE/usZSyoqhCeYRxUrS6AvrWy/sUs0oeUvAfORGWfcwjZV2ahceOGSbyIMhk/GRNkuJ4PSdgj+WhiGCL7qnkPf5z+wEqTR4QiemlrIoRv2UGR5+/SmXu8s7vHPebasJZsebmBW4t1dHU=
+password:
+  secure: B4yKfORlhfAdlbs5JZ9by9H3erCbiyghsvsTnc1Z7+Yco5kuRSHx9+gKyPwpZAB2s9JOgYesrX5Ig4ZatublvqTvCl5nXJlRZ0FX/X/aVOjc49QgWzgSWnwFdqFyv5mZ1fH/YD/0tSTMc1tYYpzbKTHcd1vQEp0kSX9LmQARVghfOpXlkrWCkCcu6w0mKYAZwkIVIxVo/y+bnmrSZYzmMOPmFX0NMYMARj2FyM8IMR8v3md/k4m1CXHhG4SvuOdqO6t/2GEaAowZNQ3U+t3jaKw9UnHmH9vZrZMIMra9wTjKWTGmyZ6CiNkNZrOjd78RUY/XjDHmX7SbZTeXv7kmseIHlZzyb/k5vXa2m4sf2gDCTXbkD1pdGKpeIaI0kWWaOBREjhDok9ucTaxf4er4VVsT5ywN/qdsIjJNYpNQuUt3C8cnXlF8a8e3zSbU6JIc0dHcGybgVBwFUqi3NspiCjSQge583hRAfBmGSz0ra5F9OfMo1Wqo+c/pieQs0EPXrXqOg/NXrfTqs+q8+xhAFQfcF3HdLWlqlNWX30BYqP4daOUyIrB5jV1Op07d27iHY5OpzapNIG5ZlkrSk4ylsrSBTBv1n8ECpdLMKL3tHiNo2Gb5aryid2AWmrn7Y1WhFkQ3yaEKRtAvvhxx4T6jPy+z+p3LzTUapP+TPyg6zHw=
