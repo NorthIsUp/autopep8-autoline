@@ -1,6 +1,8 @@
 
 # Created by https://www.gitignore.io/api/python,django,flask,intellij,pycharm,sublimetext,vim,emacs,node,bower
 
+.vscode/
+
 ### Bower ###
 bower_components
 .bower-cache

@@ -28,6 +28,8 @@ def all_changed(suffix='.py'):
     )
 
 
+
+
 def get_files():
     # get all files with default argument of nothing being all files
     args = autopep8.create_parser().parse_args()
@@ -43,9 +45,13 @@ def get_changed_lines(f, reverse=True, as_type=str):
     r = re.compile(r'@@\s+-?\d+\s+\+?(\d+)(?:,(\d+))?')
 
     numbers = (
-        r.match(line).groups()
-        for line in lines
-        if line.startswith('@@')
+        match.groups()
+        for match in (
+            r.match(line)
+            for line in lines
+            if line.startswith('@@')
+        )
+        if match
     )
 
     if reverse:
@@ -59,8 +65,17 @@ def get_changed_lines(f, reverse=True, as_type=str):
 def main():
     # wrap autopep8.main
     for f in get_files():
+        msg = 'Discovered changes in {}'.format(f)
         for range in get_changed_lines(f):
+            sys.stderr.write(msg)
+            msg = ''
+            sys.stderr.write(' {}..{}'.format(*range))
+            sys.stderr.flush()
+
             autopep8.main(sys.argv + ['--line-range', *range, f])
+        if not msg:
+            sys.stderr.write('\n')
+        
 
 
 if __name__ == '__main__':

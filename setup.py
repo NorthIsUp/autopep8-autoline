@@ -5,19 +5,16 @@
 
 from setuptools import setup, find_packages
 
-with open('README.rst') as readme_file:
+with open('README.md') as readme_file:
     readme = readme_file.read()
-
-with open('HISTORY.rst') as history_file:
-    history = history_file.read()
 
 requirements = [
     'autopep8'
 ]
 
-setup_requirements = [ ]
+setup_requirements = []
 
-test_requirements = [ ]
+test_requirements = []
 
 setup(
     author="Adam Hitchcock",
@@ -37,7 +34,7 @@ setup(
     description="Python Boilerplate contains all the boilerplate you need to create a Python package.",
     install_requires=requirements,
     license="MIT license",
-    long_description=readme + '\n\n' + history,
+    long_description=readme,
     include_package_data=True,
     keywords='autopep8_autoline',
     name='autopep8_autoline',
@@ -48,5 +45,6 @@ setup(
     url='https://github.com/NorthIsUp/autopep8_autoline',
     version='0.1.0',
     zip_safe=False,
-    entry_points={'console_scripts': ['autopep8-autoline = autopep8_autoline:main']},
+    entry_points={'console_scripts': [
+        'autopep8-autoline = autopep8_autoline:main']},
 )
